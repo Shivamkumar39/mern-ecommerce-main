@@ -5,7 +5,7 @@ import {Navbar} from '../features/navigation/components/Navbar'
 export const AdminOrdersPage = () => {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <AdminOrders/>
     </>
   )

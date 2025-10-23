@@ -5,7 +5,7 @@ import {Navbar} from '../features/navigation/components/Navbar'
 export const ProductUpdatePage = () => {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <ProductUpdate/>
     </>
   )

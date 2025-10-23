@@ -6,7 +6,7 @@ export const CheckoutPage = () => {
   return (
     <>
     <Checkout/>
-    <Footer/>
+   
     </>
   )
 }

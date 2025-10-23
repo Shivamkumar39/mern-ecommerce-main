@@ -6,9 +6,9 @@ import { Footer } from '../features/footer/Footer'
 export const WishlistPage = () => {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <Wishlist/>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

@@ -6,9 +6,9 @@ import {Footer} from '../features/footer/Footer'
 export const CartPage = () => {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <Cart/>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }
