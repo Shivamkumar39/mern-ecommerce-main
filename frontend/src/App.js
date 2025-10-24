@@ -34,6 +34,8 @@ import { AdminDashboardPage } from './pages/AdminDashboardPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import ProductData from './pages/ProductData';
 import { RootLayout } from './layout/RootLayout';
+import ContactPage from './pages/Contact';
+import './index.css';
 
 function App() {
   const isAuthChecked = useSelector(selectIsAuthChecked)
@@ -75,6 +77,7 @@ function App() {
                 <Route path="/order-success/:id" element={<OrderSuccessPage />} />
                 <Route path="/orders" element={<UserOrdersPage />} />
                 <Route path="/wishlist" element={<WishlistPage />} />
+                <Route path="/contact" element={<ContactPage/>} />
               </>
             )
           }

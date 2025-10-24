@@ -52,7 +52,9 @@ export const Footer = () => {
                     <Typography sx={labelStyles}>Privacy Policy</Typography>
                     <Typography sx={labelStyles}>Terms Of Use</Typography>
                     <Typography sx={labelStyles}>FAQ</Typography>
+                    <Link to='/contact' style={{textDecoration:'none',color:'inherit'}}>
                     <Typography sx={labelStyles}>Contact</Typography>
+                    </Link>
                 </Stack>
 
                 <Stack rowGap={'1rem'} padding={'1rem'}>

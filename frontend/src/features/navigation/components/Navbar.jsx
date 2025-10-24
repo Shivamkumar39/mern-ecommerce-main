@@ -183,7 +183,7 @@ export const Navbar = () => {
             if (!loggedInUser) e.preventDefault(); // prevent navigation if user not loaded
           }}
         >
-          MERN SHOP
+          Woman Styles
         </Typography>
 
 
