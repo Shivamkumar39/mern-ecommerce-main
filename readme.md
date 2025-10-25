@@ -1,17 +1,5 @@
 ## MERN Ecommerce: A Seamless Shopping Experience Powered by the MERN Stack, Redux Toolkit, and Material UI
 
-### Also try -> [https://mernchat.in](https://mernchat.in)
-### ```Note✨: I have another amazing project on``` [end-to-end-encrypted-chat-application](https://github.com/RishiBakshii/mern-chat) ```using Next.js, Prisma, Postgresql, Express, Socket.io.```
-
-**MERN Ecommerce** is a full-stack application designed to transform your online shopping experience. Built with the MERN stack (MongoDB, Express.js, React, Node.js), it leverages Redux Toolkit for efficient state management and Material UI for a sleek, user-friendly interface. This project offers a robust platform for both users and admins, packed with essential features for a seamless experience.
-
-![ecommerce-homepage](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/front.png?raw=true)
-<!-- ![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner4.jpg?raw=true) -->
-![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner3.jpg?raw=true)
-
-
-# **Features**
-
 ### **User:**
 - **Product Reviews:**
   - Write, edit, and delete reviews.
@@ -89,28 +77,6 @@ npm install
 - Create a `.env` file in the `backend` directory.
 - Add the following variables with appropriate values
 ```bash
-# Database connection string
-MONGO_URI="mongodb://localhost:27017/your-database-name"
-
-# Frontend URL (adjust if needed)
-ORIGIN="http://localhost:3000"
-
-# Email credentials for sending password resets and OTPs
-EMAIL="your-email@example.com"
-PASSWORD="your-email-password"
-
-# Token and cookie expiration settings
-LOGIN_TOKEN_EXPIRATION="30d"  # Days
-OTP_EXPIRATION_TIME="120000"  # Milliseconds
-PASSWORD_RESET_TOKEN_EXPIRATION="2m"  # Minutes
-COOKIE_EXPIRATION_DAYS="30"    # Days
-
-# Secret key for jwt security
-SECRET_KEY="your-secret-key"
-
-# Environment (production/development)
-PRODUCTION="false" # Initially set to false for development
-```
 
 **Frontend**
 - Create a `.env` file in the `frontend` directory
@@ -126,12 +92,6 @@ REACT_APP_BASE_URL="http://localhost:8000"
 
 ### Data seeding
 - **Get started quickly with pre-populated data**: Populate your database with sample users, products, reviews, and carts, enabling you to test functionalities without manual data entry.
-
-**Steps**:
-- Open a new terminal window.
-- Navigate to the `backend` directory: `cd backend`
-- Run the seeding script: `npm run seed` ( This script executes the `seed.js` file within the `seed` subdirectory equivalent to running `node seed/seed.js` )
-### Running Development Servers
 
 **Important:**
 
@@ -175,4 +135,4 @@ Once both servers are running, you can access them at the following URL's:
 Don't forget to star the repository and share your feedback!✨
 
 ## Authors
-- [@RishiBakshii](https://github.com/RishiBakshii)
+shivam kumar 
