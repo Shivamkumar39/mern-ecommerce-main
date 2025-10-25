@@ -27,7 +27,7 @@ const paymentRoutes = require("./routes/pyment");
 server.use("/api/payment", paymentRoutes);
 
 // middlewares
-server.use(cors({origin:process.env.ORIGIN || "https://nishifashion.vercel.app",credentials:true,exposedHeaders:['X-Total-Count'],methods:['GET','POST','PATCH','DELETE']}))
+server.use(cors({origin:process.env.ORIGIN||"https://nishifashion.vercel.app",credentials:true,methods:['GET','POST','PATCH','DELETE'],exposedHeaders:['X-Total-Count']}))
 server.use(express.json())
 server.use(cookieParser())
 server.use(morgan("tiny"))
