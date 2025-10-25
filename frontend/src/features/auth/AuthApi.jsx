@@ -2,7 +2,7 @@ import {axiosi} from '../../config/axios'
 
 export const signup=async(cred)=>{
     try {
-        const res=await axiosi.post("auth/signup",cred)
+        const res=await axiosi.post("/auth/signup",cred)
         return res.data
     } catch (error) {
         throw error.response.data
@@ -10,7 +10,7 @@ export const signup=async(cred)=>{
 }
 export const login=async(cred)=>{
     try {
-        const res=await axiosi.post("auth/login",cred)
+        const res=await axiosi.post("/auth/login",cred)
         return res.data
     } catch (error) {
         throw error.response.data
