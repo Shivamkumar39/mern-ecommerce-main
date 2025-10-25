@@ -167,7 +167,7 @@ export const Checkout = () => {
 
                         <Stack flexDirection={'row'} justifyContent={'flex-start'} alignItems={'center'}>
                             <Radio value={selectedPaymentMethod} name='paymentMethod' checked={selectedPaymentMethod==='CARD'} onChange={()=>setSelectedPaymentMethod('CARD')}/>
-                            <Typography>Card</Typography>
+                            <Typography>Card(currently not working)</Typography>
                         </Stack>
 
                     </Stack>
