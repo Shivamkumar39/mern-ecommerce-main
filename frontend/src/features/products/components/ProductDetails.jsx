@@ -161,7 +161,7 @@ export const ProductDetails = () => {
                 {product.stockQuantity <= 10 ? `Only ${product.stockQuantity} left` : product.stockQuantity <= 20 ? "Only few left" : "In Stock"}
               </span>
             </div>
-            <p className="text-2xl font-bold mt-2">${product.price}</p>
+            <p className="text-2xl font-bold mt-2">&#8377;{product.price}</p>
           </div>
 
           <p className="text-gray-700">{product.description}</p>

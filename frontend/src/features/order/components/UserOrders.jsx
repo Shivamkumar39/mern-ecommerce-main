@@ -113,7 +113,7 @@ export const UserOrders = () => {
                                         </Stack>
                                         <Stack>
                                             <Typography>Total Amount</Typography>
-                                            <Typography>${order.total}</Typography>
+                                            <Typography>&#8377;{order.total}</Typography>
                                         </Stack>
                                     </Stack>
                                     <Stack>
@@ -135,7 +135,7 @@ export const UserOrders = () => {
                                                         <Typography variant='body1' fontSize={'.9rem'} color={'text.secondary'}>{product.product.brand.name}</Typography>
                                                         <Typography color={'text.secondary'} fontSize={'.9rem'}>Qty: {product.quantity}</Typography>
                                                     </Stack>
-                                                    <Typography>${product.product.price}</Typography>
+                                                    <Typography>&#8377;{product.product.price}</Typography>
                                                 </Stack>
                                                 <Typography color={'text.secondary'}>{product.product.description}</Typography>
                                                 <Stack mt={2} alignSelf={is480 ? "flex-start" : 'flex-end'} flexDirection={'row'} columnGap={2} >

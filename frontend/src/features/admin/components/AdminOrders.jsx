@@ -332,7 +332,7 @@ export const AdminOrders = () => {
                         ))}
                       </Stack>
                     </TableCell>
-                    <TableCell align="right">${order.total}</TableCell>
+                    <TableCell align="right">&#8377;{order.total}</TableCell>
                     <TableCell>
                       <Stack spacing={0.5}>
                         <Typography>{order.address[0].street}</Typography>

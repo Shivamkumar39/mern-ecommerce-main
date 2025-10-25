@@ -74,7 +74,7 @@ export const ProductCard = ({ id, title, price, thumbnail, brand, stockQuantity,
                             </Stack>
 
                             <Stack sx={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                                <Typography>${price}</Typography>
+                                <Typography>&#8377;{price}</Typography>
                                 {
                                     !isWishlistCard ? isProductAlreadyInCart ?
                                         'Added to cart'
