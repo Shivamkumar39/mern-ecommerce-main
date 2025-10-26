@@ -50,7 +50,7 @@ export const resetPassword=async(cred)=>{
 }
 export const checkAuth=async(cred)=>{
     try {
-        const res=await axiosi.get("/auth/check-auth")
+        const res=await axiosi.get("auth/check-auth")
         return res.data
     } catch (error) {
         throw error.response.data
