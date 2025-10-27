@@ -32,12 +32,12 @@ server.use(express.json())
 server.use(cookieParser())
 server.use(morgan("tiny"))
 // set cookie for testing
-server.use((req,res,next)=>{
-    // For testing purpose only, remove this in production
-    const token="test-token"   
-    res.cookie("token",token,{httpOnly:true,sameSite:'lax',secure:process.env.PRODUCTION==="true"?true:false})
-    next()
-})
+// server.use((req,res,next)=>{
+//     // For testing purpose only, remove this in production
+//     const token="test-token"   
+//     res.cookie("token",token,{httpOnly:true,sameSite:'lax',secure:process.env.PRODUCTION==="true"?true:false})
+//     next()
+// })
 // routeMiddleware
 server.use("/auth",authRoutes)
 server.use("/users",userRoutes)
