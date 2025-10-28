@@ -42,11 +42,11 @@ const productSchema= new Schema({
     },
     color:{
         type:String,
-        required:true
+        required:false
     },
     size:{
         type:[String],
-        required:true
+        required:false
     },
     isDeleted:{
         type:Boolean,
