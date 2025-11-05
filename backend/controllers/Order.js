@@ -1,39 +1,50 @@
 const Order = require("../models/Order");
 
-// exports.create=async(req,res)=>{
-//     try {
-//         const created=new Order(req.body)
-//         await created.save()
-//         res.status(201).json(created)
-//     } catch (error) {
-//         console.log(error);
-//         return res.status(500).json({message:'Error creating an order, please trying again later'})
+ exports.create=async(req,res)=>{
+     try {
+         const created=new Order(req.body)
+         await created.save()
+         res.status(201).json(created)
+     } catch (error) {
+         console.log(error);
+         return res.status(500).json({message:'Error creating an order, please trying again later'})
+     }
+ }
+// exports.create = async (req, res) => {
+//   try {
+//     const { paymentMode, razerpayId, items} = req.body;
+
+//     let paymentstatus = 'Pending';
+
+//     if (paymentMode === 'Card') {
+//       // Check if Razorpay payment succeeded
+//       paymentstatus = razerpayId ? 'Completed' : 'Failed';
 //     }
-// }
-exports.create = async (req, res) => {
-  try {
-    const { paymentMode, razerpayId } = req.body;
+//     // For COD, payment is always pending
+//     const newOrder = new Order({
+//       ...req.body,
+//       paymentstatus
+//     });
 
-    let paymentstatus = 'Pending';
 
-    if (paymentMode === 'Card') {
-      // Check if Razorpay payment succeeded
-      paymentstatus = razerpayId ? 'Completed' : 'Failed';
-    }
-    // For COD, payment is always pending
-    const newOrder = new Order({
-      ...req.body,
-      paymentstatus
-    });
+//       if (items && items.length > 0) {
+//       for (const item of items) {
+//         await Product.findByIdAndUpdate(
+//           item.product._id,  // make sure frontend sends product._id
+//           { $inc: { stockQuantity: -item.quantity } },
+//           { new: true }
+//         );
+//       }
+//     }
 
-    await newOrder.save();
-    res.status(201).json(newOrder);
+//     await newOrder.save();
+//     res.status(201).json(newOrder);
 
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: 'Error creating order' });
-  }
-};
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ message: 'Error creating order' });
+//   }
+// };
 
 exports.getByUserId=async(req,res)=>{
     try {

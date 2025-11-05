@@ -14,6 +14,7 @@ const addressRoutes=require('./routes/Address')
 const reviewRoutes=require("./routes/Review")
 const wishlistRoutes=require("./routes/Wishlist")
 const { connectToDB } = require("./database/db")
+require('dotenv').config();
 
 
 // server init
