@@ -19,7 +19,7 @@ export const HomePage = () => {
     const loggedInUser = useSelector(selectLoggedInUser);
 
     useEffect(() => {
-        const filters = { pagination: { page: 1, limit: 8 }, user: true };
+        const filters = { pagination: { page: 1, limit: 50 }, user: true };
         dispatch(fetchProductsAsync(filters));
     }, [dispatch]);
 
@@ -49,13 +49,13 @@ export const HomePage = () => {
             </Box>
 
             {/* Latest Products */}
-            <Stack spacing={3}>
+            <Stack spacing={3} mt={6} paddingRight={3} >
                 <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
                     <Typography variant="h4" fontWeight="bold">
                         Latest Products
                     </Typography>
-                    <Button 
-                        variant="contained" 
+                    <Button
+                        variant="contained"
                         color="primary"
                         onClick={() => navigate('/productList')}
                     >
@@ -65,23 +65,15 @@ export const HomePage = () => {
 
                 <Grid container spacing={3}>
                     {products.map(product => (
-                        <Grid item xs={12} sm={6} md={3} key={product._id}>
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    height: '100%',
-                                }}
-                            >
-                                <ProductCard
-                                    id={product._id}
-                                    title={product.title}
-                                    thumbnail={product.thumbnail}
-                                    brand={product.brand?.name}
-                                    price={product.price}
-                                    handleAddRemoveFromWishlist={handleAddRemoveFromWishlist} // ✅ pass function
-                                />
-                            </Box>
+                        <Grid item xs={6} sm={4} md={3} key={product._id}>
+                            <ProductCard
+                                id={product._id}
+                                title={product.title}
+                                thumbnail={product.thumbnail}
+                                brand={product.brand?.name}
+                                price={product.price}
+                                handleAddRemoveFromWishlist={handleAddRemoveFromWishlist}
+                            />
                         </Grid>
                     ))}
                 </Grid>

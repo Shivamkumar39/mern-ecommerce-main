@@ -1,4 +1,4 @@
-import {FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Stack, Typography, useMediaQuery, useTheme, Button, Box} from '@mui/material';
+import { FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Stack, Typography, useMediaQuery, useTheme, Button, Box } from '@mui/material';
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsAsync, resetProductFetchStatus, selectProductFetchStatus, selectProductIsFilterOpen, selectProductTotalResults, selectProducts, toggleFilters } from '../ProductSlice';
@@ -38,6 +38,8 @@ export const ProductList = () => {
     const [sort, setSort] = useState(sortOptions[2]); // default latest first
     const theme = useTheme();
     const filterRef = useRef();
+    const [searchText, setSearchText] = useState("");
+
 
     const is1200 = useMediaQuery(theme.breakpoints.down(1200));
     const is800 = useMediaQuery(theme.breakpoints.down(800));
@@ -82,10 +84,16 @@ export const ProductList = () => {
     useEffect(() => { setPage(1); }, [totalResults]);
 
     useEffect(() => {
-        const finalFilters = { ...filters, pagination: { page, limit: ITEMS_PER_PAGE }, sort };
+        const finalFilters = {
+            ...filters,
+            pagination: { page, limit: ITEMS_PER_PAGE },
+            sort,
+            search: searchText.trim() === "" ? undefined : searchText.trim()
+        };
+
         if (!loggedInUser?.isAdmin) finalFilters.user = true;
         dispatch(fetchProductsAsync(finalFilters));
-    }, [filters, page, sort]);
+    }, [filters, page, sort, searchText]);
 
     const handleAddRemoveFromWishlist = (e, productId) => {
         if (e.target.checked) dispatch(createWishlistItemAsync({ user: loggedInUser?._id, product: productId }));
@@ -188,7 +196,44 @@ export const ProductList = () => {
             {/* Products Section */}
             <Stack rowGap={5} mt={2} px={2}>
                 {/* Sort dropdown */}
-                <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={2}>
+                <Stack
+                    direction={is600 ? "column" : "row"}
+                    justifyContent="space-between"
+                    alignItems="center"
+                    spacing={2}
+                    width="100%"
+                >
+                    {/* SEARCH BAR */}
+                    <Stack
+                        direction="row"
+                        alignItems="center"
+                        spacing={1}
+                        sx={{
+                            border: "1px solid #ccc",
+                            borderRadius: "8px",
+                            padding: "4px 10px",
+                            width: is600 ? "100%" : "280px"
+                        }}
+                    >
+                        <IconButton size="small">
+                            <i className="fa fa-search"></i>
+                        </IconButton>
+
+                        <input
+                            type="text"
+                            placeholder="Search products..."
+                            value={searchText}
+                            onChange={(e) => setSearchText(e.target.value)}
+                            style={{
+                                border: "none",
+                                outline: "none",
+                                width: "100%",
+                                fontSize: "16px"
+                            }}
+                        />
+                    </Stack>
+
+                    {/* SORT DROPDOWN */}
                     <FormControl sx={{ minWidth: 150 }}>
                         <InputLabel>Sort</InputLabel>
                         <Select
@@ -205,25 +250,39 @@ export const ProductList = () => {
                     </FormControl>
                 </Stack>
 
+
                 {/* Product Grid */}
                 {productFetchStatus === 'pending' ? (
                     <Stack width={is500 ? "35vh" : '25rem'} height={'60vh'} justifyContent={'center'} margin="auto">
                         <Lottie animationData={loadingAnimation} />
                     </Stack>
                 ) : (
-                    <Grid container gap={is700 ? 1 : 2} justifyContent="center">
+                    <Grid
+                        container
+                        spacing={2}
+                        justifyContent="center"
+                    >
                         {products.map((product) => (
-                            <ProductCard
+                            <Grid
+                                item
                                 key={product._id}
-                                id={product._id}
-                                title={product.title}
-                                thumbnail={product.thumbnail}
-                                brand={product.brand.name}
-                                price={product.price}
-                                handleAddRemoveFromWishlist={handleAddRemoveFromWishlist}
-                            />
+                                xs={6}   // ⭐ EXACT 2 per row on mobile
+                                sm={4}   // ⭐ 3 per row on tablets
+                                md={3}   // ⭐ 4 per row on small laptops
+                                lg={2.4} // ⭐ 5 per row on large screens
+                            >
+                                <ProductCard
+                                    id={product._id}
+                                    title={product.title}
+                                    thumbnail={product.thumbnail}
+                                    brand={product.brand.name}
+                                    price={product.price}
+                                    handleAddRemoveFromWishlist={handleAddRemoveFromWishlist}
+                                />
+                            </Grid>
                         ))}
                     </Grid>
+
                 )}
 
                 {/* Pagination */}
