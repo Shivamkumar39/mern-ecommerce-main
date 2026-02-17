@@ -234,8 +234,10 @@ B.Tech CSE
 linkedin id:- [LINKEDIN ID](https://www.linkedin.com/in/barad-manashvi/)
 
 ## 2
-**SHIVAM KUAMR**
-LINKEDIN IF:- LINKEDIN ID
+*SHIVAM KUAMR*
+B.Tech cse
+linkedin id:- linkedin id
+
 ---
 
 
